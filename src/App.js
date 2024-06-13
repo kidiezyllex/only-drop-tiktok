@@ -9,14 +9,12 @@ import {
   faHeart,
   faInfinity,
   faPause,
-  faVolumeLow,
 } from "@fortawesome/free-solid-svg-icons";
 import "./styles.css";
 function App() {
   const fileInputRef = useRef(null);
   const audioRef = useRef(null);
   const canvasRef = useRef(null);
-  const [colorPalette, setColorPalette] = useState(null);
   const [backgroundColor, setBackgroundColor] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [palettes, setPalettes] = useState([]);
@@ -203,6 +201,7 @@ function App() {
               </div>
               <img
                 src={discArt}
+                alt=""
                 style={{
                   width: "50%",
                   borderRadius: 10,
