@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useRef, useEffect, useState } from "react";
 import discArt from "./assets/disc.png";
+import backgroundArt from "./assets/background.jpg";
 import ColorThief from "colorthief";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -36,8 +37,8 @@ function App() {
       // Split the string by " - "
       let parts = nameWithoutExtension.split(" - ");
 
-      setArtists(parts[0]);
-      setSong(parts[1]);
+      setArtists("ㅤ");
+      setSong("ㅤ");
       audio.src = URL.createObjectURL(files[0]);
       audio.load();
       audio.play();
@@ -129,8 +130,8 @@ function App() {
       <div
         className="content background-animation"
         style={{
-          height: "95vh",
-          width: 393,
+          height: 900,
+          width: 472,
           padding: 15,
           display: "flex",
           flexDirection: "column",
@@ -139,15 +140,90 @@ function App() {
           gap: 10,
           backgroundColor:
             backgroundColor !== null ? backgroundColor : "transparent",
+          transform: "rotate(90deg)",
+          marginTop: 80,
         }}
       >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            gap: 5,
+            width: "70%",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              height: 302,
+              width: 472,
+              position: "absolute",
+              top: 122,
+              zIndex: -1,
+              left: 14,
+              border: "2px solid #fff",
+              borderRadius: 10,
+              // borderTop: 0,
+            }}
+          ></div>
+          <div
+            style={{
+              height: "91.5%",
+              width: "50%",
+              zIndex: 2,
+              transform: "translateX(25%)",
+              display: "flex",
+              border: "2px solid #fff",
+              padding: 5,
+              paddingRight: 0,
+              borderRight: 0,
+              borderBottomLeftRadius: 10,
+              borderTopLeftRadius: 10,
+            }}
+          >
+            <div
+              style={{
+                height: "10%",
+                width: 80,
+                backgroundColor: backgroundColor,
+                position: "absolute",
+                left: 0,
+                top: "45%",
+              }}
+            ></div>
+          </div>
+          <div
+            style={{
+              width: "50%",
+              border: "2px solid #fff",
+              borderLeft: 0,
+              borderTopRightRadius: "50%",
+              borderBottomRightRadius: "50%",
+              zIndex: 1,
+              transform: "translateX(-30%)",
+              display: "flex",
+              padding: 5,
+              backgroundColor: backgroundColor,
+            }}
+          >
+            <img
+              src={discArt}
+              alt="disc-image"
+              style={{
+                width: "100%",
+              }}
+              className="spin-infinite"
+            ></img>
+          </div>
+        </div>
         <canvas
           id="canvas"
           ref={canvasRef}
           style={{
-            width: "100%",
+            width: "95%",
             zIndex: 1000,
-            height: 150,
+            height: 200,
+            paddingBottom: 15,
           }}
         ></canvas>
 
@@ -168,50 +244,9 @@ function App() {
               padding: 15,
               gap: 7,
               paddingBottom: 15,
+              paddingTop: 10,
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 5,
-              }}
-            >
-              <div className="flipper">
-                <img
-                  className="cover-image front"
-                  src={uploadedImage} // Use the imported image
-                  alt="Cover Art"
-                  style={{
-                    width: "100%",
-                    borderRadius: 10,
-                    zIndex: 2,
-                  }}
-                />
-                <img
-                  className="cover-image back"
-                  src={uploadedImage} // Use the imported image
-                  alt="Cover Art"
-                  style={{
-                    width: "100%",
-                    borderRadius: 10,
-                    zIndex: 2,
-                  }}
-                />
-              </div>
-              <img
-                src={discArt}
-                alt=""
-                style={{
-                  width: "50%",
-                  borderRadius: 10,
-
-                  zIndex: 1,
-                }}
-                className="spin-infinite"
-              ></img>
-            </div>
-
             <div
               style={{
                 width: "100%",
@@ -223,7 +258,23 @@ function App() {
                 marginTop: 5,
               }}
             >
-              <h3 style={{ margin: 0, color: "#fff", fontWeight: 500 }}>
+              <img
+                src={backgroundArt}
+                alt="disc-image"
+                style={{
+                  width: "100%",
+                  borderRadius: 10,
+                  zIndex: 1,
+                }}
+              ></img>
+              <h3
+                style={{
+                  margin: 0,
+                  color: "#fff",
+                  fontWeight: 500,
+                  textShadow: "rgba(255, 255, 255, .7) 5  40px",
+                }}
+              >
                 {song}
               </h3>
               <h4 style={{ margin: 0, color: "#ccc", fontWeight: 500 }}>
@@ -299,9 +350,9 @@ function App() {
           display: "flex",
           flexDirection: "column",
           gap: 10,
-          margin: 20,
           position: "absolute",
-          right: "70%",
+          right: 0,
+          top: 0,
           zIndex: 1000,
         }}
       >
@@ -324,11 +375,10 @@ function App() {
           display: "flex",
           flexDirection: "column",
           gap: 10,
-          margin: 20,
           position: "absolute",
-          right: "70%",
+          left: 0,
           zIndex: 1000,
-          top: 100,
+          top: 0,
         }}
       >
         <input type="file" id="coverArtFile" onChange={uploadImage} />

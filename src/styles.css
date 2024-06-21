@@ -5,10 +5,10 @@
 }
 @keyframes spin {
   from {
-    transform: translateX(-55%) rotate(0deg);
+    transform: translateX(0%) rotate(0deg);
   }
   to {
-    transform: translateX(-55%) rotate(360deg);
+    transform: translateX(0%) rotate(360deg);
   }
 }
 .spin-infinite {
@@ -54,7 +54,7 @@ body::-webkit-scrollbar {
 }
 
 .path {
-  animation: eating-path 40s linear infinite;
+  animation: eating-path 45s linear infinite;
 }
 
 @keyframes chunk-top {
@@ -79,20 +79,19 @@ body::-webkit-scrollbar {
 
 @keyframes eating-path {
   0% {
-    transform: translateX(-100px);
+    transform: translateX(-125px);
   }
   100% {
-    transform: translateX(120px);
+    transform: translateX(155px);
   }
 }
 .flipper {
   position: relative;
-
   width: 100%;
   transform-style: preserve-3d;
   transition: transform 2s;
   z-index: 1000;
-  animation: flip 10s infinite;
+  /* animation: flip 10s infinite; */
   margin: 0;
 }
 
@@ -106,11 +105,11 @@ body::-webkit-scrollbar {
 }
 
 .front {
-  transform: rotateY(0deg);
+  transform: rotateY(180deg);
 }
 
 .back {
-  transform: rotateY(180deg);
+  transform: rotateY(0deg);
 }
 
 @keyframes flip {
