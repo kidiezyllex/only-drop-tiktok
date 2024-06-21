@@ -258,7 +258,8 @@ function App() {
                 marginTop: 5,
               }}
             >
-              <img
+              {/* on off */}
+              {/* <img
                 src={backgroundArt}
                 alt="disc-image"
                 style={{
@@ -266,7 +267,9 @@ function App() {
                   borderRadius: 10,
                   zIndex: 1,
                 }}
-              ></img>
+              ></img> */}
+              {/* on off */}
+              <div style={{ height: 295, width: "100%" }}></div>
               <h3
                 style={{
                   margin: 0,
